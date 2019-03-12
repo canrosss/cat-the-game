@@ -17,3 +17,4 @@
  */
 
 void welcome_scene();
+void cat_logo();

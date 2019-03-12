@@ -10,14 +10,15 @@
  *       Revision:  none
  *       Compiler:  gcc
  *
- *         Author:  YOUR NAME (),
- *   Organization:
+ *         Author:  Carlos Garcia,
+ *   Organization:  Hackvilion Inc.
  *
  * =====================================================================================
  */
 #include <stdlib.h>
 #include <stdio.h>
 #include "lib/framework.h"
+#include "lib/gui.h"
 #include <ncurses.h>
 #include <string.h>
 
@@ -29,19 +30,7 @@ int main(int argc, char *argv[])
   GAME *mygame = &object;  //Getting the mem addrs
   start(mygame);
 */
-
-  char msg[]="Testing 123";
-  int row, col;
-  initscr();
-  raw();
-  keypad(stdscr,TRUE);
-  getmaxyx(stdscr,row,col);
-  mvprintw(row/2, (col-strlen(msg))/2, "%s", msg);
-  mvprintw(row-2,0,"Esta pantalla tiene %d rows and %d columns \n", row, col);
-  printw("try Resizing your window");
-  refresh();
-  getch();
-  endwin();
+ welcome_scene();
 
   return 0;
 }

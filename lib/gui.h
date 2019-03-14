@@ -16,5 +16,6 @@
  * =====================================================================================
  */
 
-void welcome_scene();
+void welcome_scene(GAME *mygame);
+void show_board(GAME *mygame);
 void cat_logo();

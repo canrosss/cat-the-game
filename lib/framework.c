@@ -74,7 +74,10 @@ void sound(int state){
 void initializeBoard(GAME *mygame){
   //Set initial value for the structure board
   msg("Iniciando la estructura\n");
-  mygame->points =  0;
+  mygame->points = 0;
+  if ((mygame->HUMAN_player==NULL)) {
+      msg("HUMAN_player no está seteado!");
+  }
 ///  mygame->nameplayer="Carlos G";
  ///  printf("Player: %s \n", mygame->nameplayer);
   resetBoard(mygame);
@@ -105,10 +108,6 @@ void showBoard(GAME *mygame, int numeric, int symbolic){
 
 void markMovement(GAME *mygame){
 
-     system("sleep 2;clear");
-                  // Numerico ON y Symbolico ON
-     showBoard(mygame, 1, 1);
-     msg("");
 
      printf("\t \t \t \t  \t \t \t \t  Turno => %d  \n",mygame->turn);
      printf("\t \t \t \t  \t \t \t \t  Jugando => %s  \n",mygame->current_player);
@@ -180,16 +179,12 @@ void start(GAME *mygame){
 
   // Iniciando la variable HUMAN_player en null
   //
-  mygame->HUMAN_player = "Carlos";
   mygame->IA_player = "Machine IA";
 
-  //Primer turno
-  mygame->current_player=mygame->HUMAN_player;
   msg("Welcome");
-  printf("%s", mygame->HUMAN_player);
 
   initializeBoard(mygame);
   sound(FALSE);
   //showBoard(mygame,1,1);
-  markMovement(mygame);
+  //markMovement(mygame);
 }

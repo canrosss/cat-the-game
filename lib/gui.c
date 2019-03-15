@@ -66,26 +66,43 @@ void welcome_scene(GAME *mygame){
   printw("%s", "¿Cuál es tu nombre? ");
 
   getstr(str);
+
+  char *tmp = NULL; // Crea un puntero temporal
+  tmp = malloc(strlen(str)+1); //allocaliza el espacio del string que voy a capturar
+  strcpy(tmp,str); // lo copia en tmp
+
+  mygame->HUMAN_player = tmp;
   //Pasando el string a la estructura
-  mygame->HUMAN_player;
-  mvprintw(LINES-2,0,"Jugador: %s", str);
+  mvprintw(LINES-2,0,"Jugador: %s", mygame->HUMAN_player);
   getch();
 
   move(LINES-2,0);
   printw("%s", "Presiona cualquier tecla para continuar ");
+
+//  free(tmp); // Destruyo tmp porque ya no lo voy a usar
 //  endwin();
  //  raw();
 }
 
 void show_board(GAME *mygame){
 
+  int symbol_X_coordinate = 0;
+  int symbol_Y_coordinate = 0;
+
+  int value_X_coordinate = 0;
+  int value_Y_coordinate = 0;
+
   int i = 0;
   int j = 0;
   clear();
   refresh();
 
+       //Y X
+  move(5,80);printw("Jugando => %s ", mygame->HUMAN_player);
+  refresh();
+  move(10,80);printw("%s", "Turno => ", mygame->turn);
+  refresh();
 
-  move(5,58);
   addch(ACS_VLINE);
 
   move(6,58);
@@ -136,8 +153,21 @@ void show_board(GAME *mygame){
   move(17,60);printw("[2,1]");
   move(17,70);printw("[2,2]");
 
-  move(LINES-1,0);
-  printw("%s", "¿Cuál es tu Coordenada X ");
+  move(10,40);printw("%d", mygame->board[0][0] = 0);refresh();
 
+  move(LINES-2,0);
+  printw("%s", "¿Cuál es tu Coordenada X => ");
+  symbol_X_coordinate = getch();
+
+  move(LINES-1,0);
   refresh();
+  printw("%s", "¿Cuál es tu Coordenada Y => ");
+  refresh();
+  symbol_Y_coordinate = getch();
+
+  move(10,40);printw("%d", mygame->board[symbol_X_coordinate][symbol_Y_coordinate] = 1);refresh();
+
+  //Pasando a la estructura
+  clear();
+  show_board(mygame);
 }

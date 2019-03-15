@@ -28,10 +28,10 @@ int main(int argc, char *argv[])
   //crea un objeto del tipo GAME object y crea el punter *mygame para recibir la direccion de memoria.
   GAME object;
   GAME *mygame = &object;  //Getting the mem addrs
-/*    start(mygame);
-*/
- welcome_scene(mygame);
- show_board(mygame);
+  start(mygame);
+
+  welcome_scene(mygame);
+  show_board(mygame);
 
   return 0;
 }

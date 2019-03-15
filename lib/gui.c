@@ -59,7 +59,7 @@ void welcome_scene(GAME *mygame){
 
   initscr();
   getmaxyx(stdscr,row,col);
-///  cat_logo();
+//  cat_logo();
   sleep(1);
   mvprintw(row/2, (col-strlen(message))/2, "%s", message);
   move(LINES-1,0);

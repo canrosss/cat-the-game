@@ -97,11 +97,46 @@ void show_board(GAME *mygame){
   clear();
   refresh();
 
-  move(7,50);
-  if(mygame->board[symbol_X_coordinate][symbol_Y_coordinate] == 0){
-    printw("n");
+  move(7,51);
+  if(mygame->board[0][0] == 999){
+    printw("FREE");
   }else{
-    printw("%d", mygame->board[symbol_X_coordinate][symbol_Y_coordinate]);
+    printw("%d", mygame->board[0][0]);
+  }
+
+  move(7,61);
+  if(mygame->board[0][1] == 999){
+    printw("FREE");
+  }else{
+    printw("%d", mygame->board[0][1]);
+  }
+
+  move(7,71);
+  if(mygame->board[0][2] == 999){
+    printw("FREE");
+  }else{
+    printw("%d", mygame->board[0][2]);
+  }
+
+  move(10,51);
+  if(mygame->board[0][0] == 999){
+    printw("FREE");
+  }else{
+    printw("%d", mygame->board[0][0]);
+  }
+
+  move(10,61);
+  if(mygame->board[0][1] == 999){
+    printw("FREE");
+  }else{
+    printw("%d", mygame->board[0][1]);
+  }
+
+  move(10,71);
+  if(mygame->board[0][2] == 999){
+    printw("FREE");
+  }else{
+    printw("%d", mygame->board[0][2]);
   }
        //Y X
   move(5,80);printw("Jugando => %s ", mygame->HUMAN_player);

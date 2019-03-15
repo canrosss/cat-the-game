@@ -51,7 +51,7 @@ void resetBoard(GAME *mygame){
   //Inicializa el arreglo board con valores de 0
   for (int x = 0; x <= 3; ++x) {
         for (int y = 0; y <= 3; ++y) {
-          mygame->board[x][y] = 0;
+          mygame->board[x][y] = 999;
         }
   }
 
@@ -180,11 +180,11 @@ void start(GAME *mygame){
   // Iniciando la variable HUMAN_player en null
   //
   mygame->IA_player = "Machine IA";
-  mygame->board[0][0] = 0;
+  //Inicializa el tablero en 999
+  resetBoard(mygame);
 
   msg("Welcome");
 
-  initializeBoard(mygame);
   sound(FALSE);
   //showBoard(mygame,1,1);
   //markMovement(mygame);

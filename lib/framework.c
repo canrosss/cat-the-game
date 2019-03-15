@@ -180,6 +180,7 @@ void start(GAME *mygame){
   // Iniciando la variable HUMAN_player en null
   //
   mygame->IA_player = "Machine IA";
+  mygame->board[0][0] = 0;
 
   msg("Welcome");
 

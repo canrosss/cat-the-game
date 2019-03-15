@@ -97,6 +97,12 @@ void show_board(GAME *mygame){
   clear();
   refresh();
 
+  move(7,50);
+  if(mygame->board[symbol_X_coordinate][symbol_Y_coordinate] == 0){
+    printw("n");
+  }else{
+    printw("%d", mygame->board[symbol_X_coordinate][symbol_Y_coordinate]);
+  }
        //Y X
   move(5,80);printw("Jugando => %s ", mygame->HUMAN_player);
   refresh();
@@ -153,19 +159,15 @@ void show_board(GAME *mygame){
   move(17,60);printw("[2,1]");
   move(17,70);printw("[2,2]");
 
-  move(10,40);printw("%d", mygame->board[0][0] = 0);refresh();
-
   move(LINES-2,0);
   printw("%s", "¿Cuál es tu Coordenada X => ");
-  symbol_X_coordinate = getch();
+  scanw("%d", &symbol_X_coordinate);
 
   move(LINES-1,0);
-  refresh();
   printw("%s", "¿Cuál es tu Coordenada Y => ");
-  refresh();
-  symbol_Y_coordinate = getch();
+  scanw("%d", &symbol_Y_coordinate);
+  mygame->board[symbol_X_coordinate][symbol_Y_coordinate] = 1;
 
-  move(10,40);printw("%d", mygame->board[symbol_X_coordinate][symbol_Y_coordinate] = 1);refresh();
 
   //Pasando a la estructura
   clear();

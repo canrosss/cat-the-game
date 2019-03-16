@@ -195,11 +195,11 @@ void show_board(GAME *mygame){
   move(17,70);printw("[2,2]");
 
   move(LINES-2,0);
-  printw("%s", "¿Cuál es tu Coordenada X => ");
+  printw("%s", "¿Cuál es tu Coordenada X? => ");
   scanw("%d", &symbol_X_coordinate);
 
   move(LINES-1,0);
-  printw("%s", "¿Cuál es tu Coordenada Y => ");
+  printw("%s", "¿Cuál es tu Coordenada Y? => ");
   scanw("%d", &symbol_Y_coordinate);
   mygame->board[symbol_X_coordinate][symbol_Y_coordinate] = 1;
 

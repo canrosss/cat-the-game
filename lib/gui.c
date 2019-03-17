@@ -59,7 +59,10 @@ void welcome_scene(GAME *mygame){
 
   initscr();
   getmaxyx(stdscr,row,col);
+
 //  cat_logo();
+  system("espeak -ves+f4 'Bienvenido al juego del Gato... ¡Miauuu!' -a 200 -s 160");
+
   sleep(1);
   mvprintw(row/2, (col-strlen(message))/2, "%s", message);
   move(LINES-1,0);
@@ -78,6 +81,9 @@ void welcome_scene(GAME *mygame){
 
   move(LINES-2,0);
   printw("%s", "Presiona cualquier tecla para continuar ");
+  system("/usr/bin/mpg123 sound/confirmation.mp3  > /dev/null 2>&1&");
+
+
 
 //  free(tmp); // Destruyo tmp porque ya no lo voy a usar
 //  endwin();
@@ -99,6 +105,13 @@ int check_if_free(GAME *mygame, int symbol_X_coordinate, int symbol_Y_coordinate
 
 
 void show_board(GAME *mygame){
+
+  int MAX = 2;
+
+  int numero = rand() % 11;
+  numero = rand() % (MAX+1);
+
+  mygame->turn = numero;
 
   int symbol_X_coordinate = 0;
   int symbol_Y_coordinate = 0;
@@ -240,16 +253,20 @@ void show_board(GAME *mygame){
   move(LINES-2,0);
   printw("%s", "¿Cuál es tu Coordenada X? => ");
   scanw("%d", &symbol_X_coordinate);
+  system("/usr/bin/mpg123 sound/coins.mp3  > /dev/null 2>&1&");
 
   move(LINES-1,0);
   printw("%s", "¿Cuál es tu Coordenada Y? => ");
   scanw("%d", &symbol_Y_coordinate);
+  system("/usr/bin/mpg123 sound/coins.mp3  > /dev/null 2>&1&");
 
   if ( check_if_free(mygame, symbol_X_coordinate, symbol_Y_coordinate ) == TRUE ) {
      mygame->board[symbol_X_coordinate][symbol_Y_coordinate] = 1;
   }else {
     move(LINES-4,0);
     printw("***CASILLA OCUPADA**** SELECCIONA OTRA");
+    system("espeak -ves+f4 'CASILLA OCUPADA SELECCIONA OTRA' -a 200 -s 160");
+    system("/usr/bin/mpg123 sound/error.mp3  > /dev/null 2>&1&");
     refresh();
     sleep(2);
     show_board(mygame);

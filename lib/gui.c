@@ -84,6 +84,20 @@ void welcome_scene(GAME *mygame){
  //  raw();
 }
 
+  //Funcion que verifica si hay una casilla ocupada
+  //Recibe, como argumento un puntero a la estructura mygame donde tengo las variables de X y Y
+  //Luego, hay que comparar usando los valores, [x][y] en la estructura y comparar si se encuentra un valor diferente de 999 el cual es el default
+  //    Si hay un valor 999, ->
+  //       Devuelve 1= TRUE SI ESTA LIBRE
+  //   Si hay otro valor diferente de 999
+  //   0=FALSE SI NO ESTA DISPONIBLE .
+  //   Entonces, deberia mostrar mensaje de error y devolverte  a la pantalla inicial, volver a pintar.
+
+int check_if_free(GAME *mygame, int symbol_X_coordinate, int symbol_Y_coordinate ){
+    if (mygame->board[symbol_X_coordinate][symbol_Y_coordinate] == 999) {  return TRUE; }else { return FALSE; }
+}
+
+
 void show_board(GAME *mygame){
 
   int symbol_X_coordinate = 0;
@@ -201,20 +215,20 @@ void show_board(GAME *mygame){
   move(LINES-1,0);
   printw("%s", "¿Cuál es tu Coordenada Y? => ");
   scanw("%d", &symbol_Y_coordinate);
-  mygame->board[symbol_X_coordinate][symbol_Y_coordinate] = 1;
 
+  if ( check_if_free(mygame, symbol_X_coordinate, symbol_Y_coordinate ) == TRUE ) {
+     mygame->board[symbol_X_coordinate][symbol_Y_coordinate] = 1;
+  }else {
+    move(LINES-4,0);
+    printw("***CASILLA OCUPADA**** SELECCIONA OTRA");
+    refresh();
+    sleep(2);
+    show_board(mygame);
+  }
 
   //Pasando a la estructura
   clear();
   show_board(mygame);
 }
 
-  //Funcion que verifica si hay una casilla ocupada
-  //Recibe, como argumento un puntero a la estructura mygame donde tengo las variables de X y Y
-  //Luego, hay que recorrer la estructura y comparar si se encuentra un valor diferente de 999 el cual es el default
-  //    Si hay un valor 999, ->
-  //       Devuelve 1= TRUE SI ESTA LIBRE
-  //   Si hay otro valor diferente de 999
-  //   0=FALSE SI ESTA DISPONIBLE // no esta disponible y la marco alguien.
-  //   Entonces, deberia mostrar mensaje de error y devolverte  a la pantalla inicial, volver a pintar.
 

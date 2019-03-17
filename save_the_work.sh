@@ -1,6 +1,4 @@
-#!/bin/bash
-
-echo "Añadiendo todos los archivos al repo!\n"
+echo "Añadiendo todos los archivos al repo!"
 git add .
 echo "¿De que se trata tu commit?"
 read commit

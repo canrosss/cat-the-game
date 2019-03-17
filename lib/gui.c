@@ -208,3 +208,13 @@ void show_board(GAME *mygame){
   clear();
   show_board(mygame);
 }
+
+  //Funcion que verifica si hay una casilla ocupada
+  //Recibe, como argumento un puntero a la estructura mygame donde tengo las variables de X y Y
+  //Luego, hay que recorrer la estructura y comparar si se encuentra un valor diferente de 999 el cual es el default
+  //    Si hay un valor 999, ->
+  //       Devuelve 1= TRUE SI ESTA LIBRE
+  //   Si hay otro valor diferente de 999
+  //   0=FALSE SI ESTA DISPONIBLE // no esta disponible y la marco alguien.
+  //   Entonces, deberia mostrar mensaje de error y devolverte  a la pantalla inicial, volver a pintar.
+

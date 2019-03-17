@@ -111,6 +111,63 @@ void show_board(GAME *mygame){
   clear();
   refresh();
 
+
+       //Y X
+  move(5,80);printw("Jugando => %s ", mygame->HUMAN_player);
+  refresh();
+  move(10,80);printw("%s", "Turno => ", mygame->turn);
+  refresh();
+
+  move(6,58);addch(ACS_VLINE);
+
+  move(6,58);
+  addch(ACS_VLINE);
+
+  move(7,58);
+  addch(ACS_VLINE);
+
+  //Dibujando la otra linea
+  move(5,67);
+  addch(ACS_VLINE);
+
+  move(6,67);
+  addch(ACS_VLINE);
+
+  move(7,67);
+  addch(ACS_VLINE);
+
+  move(8,50);for(i=0;i<8;i++){ addch(ACS_S3);}addch(ACS_DIAMOND);for(int i=0;i<8;i++){ addch(ACS_S3);}addch(ACS_DIAMOND);
+  move(8,66);addch(ACS_DIAMOND);move(8,67);for(int i=0;i<8;i++){ addch(ACS_S3); }
+
+  move(11,50);for(i=0;i<8;i++){ addch(ACS_S3);}addch(ACS_DIAMOND);for(int i=0;i<8;i++){ addch(ACS_S3);}addch(ACS_DIAMOND);
+  move(11,66);addch(ACS_DIAMOND);move(11,67);for(int i=0;i<8;i++){ addch(ACS_S3); }
+
+
+  move(12,58);
+  addch(ACS_VLINE);
+
+  move(13,58);
+  addch(ACS_VLINE);
+
+  move(12,67);
+  addch(ACS_VLINE);
+
+  move(13,67);
+  addch(ACS_VLINE);
+
+
+  move(15,50);printw("[0,0]");
+  move(15,60);printw("[0,1]");
+  move(15,70);printw("[0,2]");
+
+  move(16,50);printw("[1,0]");
+  move(16,60);printw("[1,1]");
+  move(16,70);printw("[1,2]");
+
+  move(17,50);printw("[2,0]");
+  move(17,60);printw("[2,1]");
+  move(17,70);printw("[2,2]");
+
   move(7,51);
   if(mygame->board[0][0] == 999){
     printw("FREE");
@@ -133,80 +190,52 @@ void show_board(GAME *mygame){
   }
 
   move(10,51);
-  if(mygame->board[0][0] == 999){
+  if(mygame->board[1][0] == 999){
+    refresh();
     printw("FREE");
+
   }else{
-    printw("%d", mygame->board[0][0]);
+    refresh();
+    printw("%d", mygame->board[1][0]);
   }
 
   move(10,61);
-  if(mygame->board[0][1] == 999){
-    printw("FREE");
+  if(mygame->board[1][1] == 999){
+    printw("FREE");refresh();
   }else{
-    printw("%d", mygame->board[0][1]);
+    printw("%d", mygame->board[1][1]);refresh();
   }
 
   move(10,71);
-  if(mygame->board[0][2] == 999){
-    printw("FREE");
+  if(mygame->board[1][2] == 999){
+    printw("FREE");refresh();
   }else{
-    printw("%d", mygame->board[0][2]);
+    printw("%d", mygame->board[0][2]);refresh();
   }
-       //Y X
-  move(5,80);printw("Jugando => %s ", mygame->HUMAN_player);
-  refresh();
-  move(10,80);printw("%s", "Turno => ", mygame->turn);
-  refresh();
 
-  addch(ACS_VLINE);
+  move(13,51);
+  if(mygame->board[1][0] == 999){
+    refresh();
+    printw("FREE");
 
-  move(6,58);
-  addch(ACS_VLINE);
+  }else{
+    refresh();
+    printw("%d", mygame->board[1][0]);
+  }
 
-  move(7,58);
-  addch(ACS_VLINE);
+  move(13,61);
+  if(mygame->board[1][1] == 999){
+    printw("FREE");refresh();
+  }else{
+    printw("%d", mygame->board[1][1]);refresh();
+  }
 
-  //Dibujando la otra linea
-  move(5,67);
-  addch(ACS_VLINE);
-
-  move(6,67);
-  addch(ACS_VLINE);
-
-  move(7,67);
-  addch(ACS_VLINE);
-
-  move(8,50);for(i=0;i<8;i++){ addch(ACS_S3);}addch(ACS_DIAMOND);for(int i=0;i<8;i++){ addch(ACS_S3);}addch(ACS_DIAMOND);
-  move(8,66);addch(ACS_DIAMOND);move(8,67);for(int i=0;i<8;i++){ addch(ACS_S3); }
-
-  move(10,50);for(i=0;i<8;i++){ addch(ACS_S3);}addch(ACS_DIAMOND);for(int i=0;i<8;i++){ addch(ACS_S3);}addch(ACS_DIAMOND);
-  move(10,66);addch(ACS_DIAMOND);move(10,67);for(int i=0;i<8;i++){ addch(ACS_S3); }
-
-
-  move(11,58);
-  addch(ACS_VLINE);
-
-  move(12,58);
-  addch(ACS_VLINE);
-
-  move(11,67);
-  addch(ACS_VLINE);
-
-  move(12,67);
-  addch(ACS_VLINE);
-
-
-  move(15,50);printw("[0,0]");
-  move(15,60);printw("[0,1]");
-  move(15,70);printw("[0,2]");
-
-  move(16,50);printw("[1,0]");
-  move(16,60);printw("[1,1]");
-  move(16,70);printw("[1,2]");
-
-  move(17,50);printw("[2,0]");
-  move(17,60);printw("[2,1]");
-  move(17,70);printw("[2,2]");
+  move(13,71);
+  if(mygame->board[1][2] == 999){
+    printw("FREE");refresh();
+  }else{
+    printw("%d", mygame->board[0][2]);refresh();
+  }
 
   move(LINES-2,0);
   printw("%s", "¿Cuál es tu Coordenada X? => ");

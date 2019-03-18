@@ -223,14 +223,13 @@ void show_board(GAME *mygame){
   if(mygame->board[1][2] == 999){
     printw("FREE");refresh();
   }else{
-    printw("%d", mygame->board[0][2]);refresh();
+    printw("%d", mygame->board[1][2]);refresh();
   }
 
   move(13,51);
   if(mygame->board[1][0] == 999){
     refresh();
     printw("FREE");
-
   }else{
     refresh();
     printw("%d", mygame->board[1][0]);
@@ -247,7 +246,7 @@ void show_board(GAME *mygame){
   if(mygame->board[1][2] == 999){
     printw("FREE");refresh();
   }else{
-    printw("%d", mygame->board[0][2]);refresh();
+    printw("%d", mygame->board[1][2]);refresh();
   }
 
   move(LINES-2,0);
